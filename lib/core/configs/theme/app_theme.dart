@@ -15,9 +15,9 @@ class AppTheme {
         fillColor: AppColors.secondBackground ,
         hintStyle: const TextStyle(
           color: Color(0xffA7A7A7),
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w400,
         ),
-        contentPadding: const EdgeInsets.all(30),
+        contentPadding: const EdgeInsets.all(16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
           borderSide: BorderSide.none
@@ -31,7 +31,7 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
         elevation: 0,
-        textStyle: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+        textStyle: const TextStyle(fontSize: 16,fontWeight: FontWeight.w400),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100)
         )
