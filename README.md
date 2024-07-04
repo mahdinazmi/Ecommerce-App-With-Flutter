@@ -1,4 +1,4 @@
-# Spotify Clone
+# Ecommerce App
 
 📺 Watch Video
 
