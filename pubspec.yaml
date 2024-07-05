@@ -19,6 +19,7 @@ dependencies:
   cloud_firestore:
   flutter_svg:
   flutter_bloc:
+  dartz:
 
 dev_dependencies:
   flutter_test:
