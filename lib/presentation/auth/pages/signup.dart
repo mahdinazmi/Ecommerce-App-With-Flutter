@@ -99,7 +99,7 @@ class SignupPage extends StatelessWidget {
             text: "Do you have an account? "
           ),
            TextSpan(
-            text: 'Sigin',
+            text: 'Signin',
             recognizer:TapGestureRecognizer()..onTap = () {
               AppNavigator.pushReplacement(context, const SigninPage());
             } ,

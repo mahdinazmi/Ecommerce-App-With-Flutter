@@ -97,6 +97,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.8"
+  dartz:
+    dependency: "direct main"
+    description:
+      name: dartz
+      sha256: e6acf34ad2e31b1eb00948692468c30ab48ac8250e0f0df661e29f12dd252168
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.10.1"
   fake_async:
     dependency: transitive
     description:
@@ -192,6 +200,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  get_it:
+    dependency: "direct main"
+    description:
+      name: get_it
+      sha256: d85128a5dae4ea777324730dc65edd9c9f43155c109d5cc0a69cab74139fbac1
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "7.7.0"
   http:
     dependency: transitive
     description:
