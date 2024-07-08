@@ -10,6 +10,10 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.background,
     brightness: Brightness.dark,
     fontFamily: 'CircularStd',
+    snackBarTheme: const SnackBarThemeData(
+      backgroundColor: AppColors.background,
+      contentTextStyle: TextStyle(color: Colors.white),
+    ),
     inputDecorationTheme: InputDecorationTheme(   
         filled: true,
         fillColor: AppColors.secondBackground ,
