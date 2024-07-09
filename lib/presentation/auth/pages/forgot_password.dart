@@ -1,4 +1,4 @@
-import 'package:ecommerce/common/helpr/navigator/app_navigator.dart';
+import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerce/common/widgets/appbar/app_bar.dart';
 import 'package:ecommerce/common/widgets/button/basic_app_button.dart';
 import 'package:ecommerce/presentation/auth/pages/enter_password.dart';
