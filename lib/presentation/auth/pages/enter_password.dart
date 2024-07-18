@@ -1,7 +1,6 @@
 import 'package:ecommerce/common/bloc/button/button_state_cubit.dart';
 import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerce/common/widgets/appbar/app_bar.dart';
-import 'package:ecommerce/common/widgets/button/basic_app_button.dart';
 import 'package:ecommerce/common/widgets/button/basic_reactive_button.dart';
 import 'package:ecommerce/data/auth/models/user_signin_req.dart';
 import 'package:ecommerce/domain/auth/usecases/signin.dart';
@@ -107,7 +106,7 @@ class EnterPasswordPage extends StatelessWidget {
            TextSpan(
             text: 'Reset',
             recognizer:TapGestureRecognizer()..onTap = () {
-              AppNavigator.push(context, const ForgotPasswordPage());
+              AppNavigator.push(context, ForgotPasswordPage());
             } ,
             style: const TextStyle(
               fontWeight: FontWeight.bold
