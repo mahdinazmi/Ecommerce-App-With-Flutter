@@ -16,7 +16,7 @@ class CategoryRepositoryImpl extends CategoryRepository {
       }, 
       (data){
         return Right(
-          CategoryModel.fromMap(data).toEntity()
+          List.from(data).map((e) => CategoryModel.fromMap(e).toEntity()).toList()
         );
       }
     );
