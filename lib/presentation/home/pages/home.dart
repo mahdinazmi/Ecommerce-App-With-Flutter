@@ -11,10 +11,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(
-          vertical: 40,
-          horizontal: 16
-        ),
         child: Column(
           children: [
             Header(),

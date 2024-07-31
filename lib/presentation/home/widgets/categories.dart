@@ -34,25 +34,30 @@ class Categories extends StatelessWidget {
   }
 
   Widget _seaAll() {
-    return const Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            'Categories',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+         horizontal: 16
+       ),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Categories',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16
+              ),
             ),
-          ),
-          Text(
-            'See All',
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 16
-            ),
-          )
-        ],
-      );
+            Text(
+              'See All',
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 16
+              ),
+            )
+          ],
+        ),
+    );
   }
 
   Widget _categories(List<CategoryEntity> categories) {
@@ -60,6 +65,9 @@ class Categories extends StatelessWidget {
       height: 100,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(
+         horizontal: 16
+       ),
         itemBuilder: (contetx,index) {
           return Column(
             children: [

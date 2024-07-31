@@ -22,13 +22,20 @@ class Header extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
           if (state is UserInfoLoaded) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _profileImage(state.user),
-                _gender(state.user),
-                _card()
-              ],
+            return Padding(
+               padding: const EdgeInsets.only(
+                 top: 40,
+                 right: 16,
+                 left: 16
+               ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _profileImage(state.user),
+                  _gender(state.user),
+                  _card()
+                ],
+              ),
             );
           }
           return Container();
