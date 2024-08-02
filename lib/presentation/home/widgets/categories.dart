@@ -97,7 +97,7 @@ class Categories extends StatelessWidget {
           );
         },
         separatorBuilder: (context, index) => const SizedBox(width: 15),
-        itemCount: 5
+        itemCount: categories.length
       ),
     );
   }

@@ -16,30 +16,30 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => UserInfoDisplayCubit()..displayUserInfo(),
-      child: BlocBuilder < UserInfoDisplayCubit, UserInfoDisplayState > (
-        builder: (context, state) {
-          if (state is UserInfoLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (state is UserInfoLoaded) {
-            return Padding(
-               padding: const EdgeInsets.only(
-                 top: 40,
-                 right: 16,
-                 left: 16
-               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _profileImage(state.user),
-                  _gender(state.user),
-                  _card()
-                ],
-              ),
-            );
-          }
-          return Container();
-        },
+      child: Padding(
+        padding: const EdgeInsets.only(
+            top: 40,
+            right: 16,
+            left: 16
+          ),
+          child: BlocBuilder < UserInfoDisplayCubit, UserInfoDisplayState > (
+            builder: (context, state) {
+              if (state is UserInfoLoading) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (state is UserInfoLoaded) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _profileImage(state.user),
+                    _gender(state.user),
+                    _card()
+                  ],
+                );
+              }
+              return Container();
+            },
+          ),
       ),
     );
   }

@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import 'package:ecommerce/data/product/models/color.dart';
+import 'package:ecommerce/domain/product/entities/product.dart';
+import 'color.dart';
 
 class ProductModel {
   final String categoryId;
@@ -50,6 +50,24 @@ class ProductModel {
       productId: map['productId'] as String,
       salesNumber: map['salesNumber'] as int,
       title: map['title'] as String,
+    );
+  }
+}
+
+extension ProductXModel on ProductModel {
+  ProductEntity toEntity() {
+    return ProductEntity(
+      categoryId: categoryId,
+      colors: colors.map((e) => e.toEntity()).toList(),
+      createdDate: createdDate,
+      discountedPrice: discountedPrice,
+      gender: gender,
+      images: images, 
+      price: price,
+      sizes: sizes, 
+      productId: productId, 
+      salesNumber: salesNumber, 
+      title: title
     );
   }
 }
