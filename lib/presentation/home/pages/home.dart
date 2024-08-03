@@ -1,4 +1,5 @@
 import 'package:ecommerce/presentation/home/widgets/header.dart';
+import 'package:ecommerce/presentation/home/widgets/top_selling.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/categories.dart';
@@ -17,7 +18,9 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 24,),
             SearchField(),
             SizedBox(height: 24,),
-            Categories()
+            Categories(),
+            SizedBox(height: 24,),
+            TopSelling()
           ],
         ),
       ),

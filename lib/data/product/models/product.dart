@@ -7,10 +7,10 @@ class ProductModel {
   final String categoryId;
   final List < ProductColorModel > colors;
   final Timestamp createdDate;
-  final double discountedPrice;
+  final num discountedPrice;
   final int gender;
   final List < String > images;
-  final double price;
+  final num price;
   final List < String > sizes;
   final String productId;
   final int salesNumber;
@@ -38,12 +38,12 @@ class ProductModel {
         map['colors'].map((e)=> ProductColorModel.fromMap(e))
       ),
       createdDate: map['createdDate'] as Timestamp,
-      discountedPrice: map['discountedPrice'] as double,
+      discountedPrice: map['discountedPrice'] as num,
       gender: map['gender'] as int,
       images: List < String >.from(
         map['images'].map((e) => e.toString()),
       ),
-      price: map['price'] as double,
+      price: map['price'] as num,
       sizes: List < String >.from(
         map['sizes'].map((e) => e.toString()),
       ),

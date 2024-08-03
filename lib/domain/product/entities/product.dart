@@ -6,10 +6,10 @@ class ProductEntity {
   final String categoryId;
   final List < ProductColorEntity > colors;
   final Timestamp createdDate;
-  final double discountedPrice;
+  final num discountedPrice;
   final int gender;
   final List < String > images;
-  final double price;
+  final num price;
   final List < String > sizes;
   final String productId;
   final int salesNumber;
