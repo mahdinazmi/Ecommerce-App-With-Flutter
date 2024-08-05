@@ -1,5 +1,7 @@
 import 'package:ecommerce/common/bloc/categories/categories_display_cubit.dart';
 import 'package:ecommerce/common/helper/images/image_display.dart';
+import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
+import 'package:ecommerce/presentation/all_categories/pages/all_categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +23,7 @@ class Categories extends StatelessWidget {
           if (state is CategoriesLoaded) {
             return Column(
               children: [
-                _seaAll(),
+                _seaAll(context),
                 const SizedBox(height: 20, ),
                 _categories(state.categories)
               ],
@@ -33,26 +35,31 @@ class Categories extends StatelessWidget {
     );
   }
 
-  Widget _seaAll() {
-    return const Padding(
-      padding: EdgeInsets.symmetric(
+  Widget _seaAll(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
          horizontal: 16
        ),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               'Categories',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16
               ),
             ),
-            Text(
-              'See All',
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 16
+            GestureDetector(
+              onTap: (){
+                AppNavigator.push(context, const AllCategoriesPage());
+              },
+              child: const Text(
+                'See All',
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 16
+                ),
               ),
             )
           ],
