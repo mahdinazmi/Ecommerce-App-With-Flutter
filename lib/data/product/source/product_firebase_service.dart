@@ -32,11 +32,7 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService {
         'Products'
       ).where(
         'createdDate',
-        isGreaterThanOrEqualTo: Timestamp.fromDate(
-          DateTime(
-            2024,7,25
-          )
-        )
+        isGreaterThanOrEqualTo: DateTime(2024,07,25)
       ).get();
       return Right(returnedData.docs.map((e) => e.data()).toList());
     } catch (e) {
