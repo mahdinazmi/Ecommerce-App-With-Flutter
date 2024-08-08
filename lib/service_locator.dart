@@ -15,6 +15,7 @@ import 'package:ecommerce/domain/auth/usecases/siginup.dart';
 import 'package:ecommerce/domain/category/usecases/get_categories.dart';
 import 'package:ecommerce/domain/product/repository/product.dart';
 import 'package:ecommerce/domain/product/usecases/get_new_in.dart';
+import 'package:ecommerce/domain/product/usecases/get_products_by_category_id.dart';
 import 'package:ecommerce/domain/product/usecases/get_top_selling.dart';
 import 'package:get_it/get_it.dart';
 
@@ -91,5 +92,9 @@ Future<void> initializeDependencies() async {
 
   sl.registerSingleton<GetNewInUseCase>(
     GetNewInUseCase()
+  );
+
+   sl.registerSingleton<GetProductsByCategoryIdUseCase>(
+    GetProductsByCategoryIdUseCase()
   );
 }
