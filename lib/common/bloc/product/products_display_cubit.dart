@@ -5,10 +5,12 @@ import 'products_display_state.dart';
 
 class ProductsDisplayCubit extends Cubit<ProductsDisplayState> {
   final UseCase useCase;
-  ProductsDisplayCubit({required this.useCase}) : super(ProductsLoading());
+  ProductsDisplayCubit({required this.useCase}) : super(ProductsInitialState());
   
   void displayProducts({dynamic params}) async {
-    print(params);
+    emit(
+      ProductsLoading()
+    );
     var returnedData = await useCase.call(
       params: params
     );
@@ -23,6 +25,12 @@ class ProductsDisplayCubit extends Cubit<ProductsDisplayState> {
           ProductsLoaded(products: data)
         );
       }
+    );
+  }
+
+  void displayInitial() {
+    emit(
+      ProductsInitialState()
     );
   }
 
