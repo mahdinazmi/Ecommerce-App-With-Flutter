@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class BasicAppButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String title;
+  final Widget ? content;
   final double ? height;
   final double ? width;
   const BasicAppButton({
     required this.onPressed,
-    required this.title,
+    this.title = '',
     this.height,
     this.width,
+    this.content,
     super.key
   });
 
@@ -23,7 +25,7 @@ class BasicAppButton extends StatelessWidget {
           height ?? 50
         ),
       ),
-      child: Text(
+      child: content ?? Text(
         title,
         style: const TextStyle(
           color: Colors.white,

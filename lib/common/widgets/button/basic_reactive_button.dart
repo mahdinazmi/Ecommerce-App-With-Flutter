@@ -8,10 +8,12 @@ class BasicReactiveButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String title;
   final double ? height;
+  final Widget ? content;
   const BasicReactiveButton({
     required this.onPressed,
-    required this.title,
+    this.title = '',
     this.height,
+    this.content,
     super.key
   });
 
@@ -47,7 +49,7 @@ class BasicReactiveButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         minimumSize: Size.fromHeight(height ?? 50),
       ),
-      child: Text(
+      child: content ?? Text(
         title,
         style: const TextStyle(
           color: Colors.white,

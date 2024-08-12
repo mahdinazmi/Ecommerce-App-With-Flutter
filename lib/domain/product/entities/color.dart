@@ -2,11 +2,11 @@
 class ProductColorEntity {
 
   final String title;
-  final String hexCode;
+  final List<int> rgb;
 
   ProductColorEntity({
     required this.title,
-    required this.hexCode
+    required this.rgb,
   });
 
 }
