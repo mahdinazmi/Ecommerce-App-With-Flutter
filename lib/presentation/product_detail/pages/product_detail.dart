@@ -1,3 +1,4 @@
+import 'package:ecommerce/common/bloc/button/button_state_cubit.dart';
 import 'package:ecommerce/common/widgets/appbar/app_bar.dart';
 import 'package:ecommerce/domain/product/entities/product.dart';
 import 'package:ecommerce/presentation/product_detail/bloc/product_color_selection_cubit.dart';
@@ -27,7 +28,8 @@ class ProductDetailPage extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => ProductQuantityCubit()),
         BlocProvider(create: (context) => ProductColorSelectionCubit()),
-        BlocProvider(create: (context) => ProductSizeSelectionCubit())
+        BlocProvider(create: (context) => ProductSizeSelectionCubit()),
+        BlocProvider(create: (context) => ButtonStateCubit())
       ],
       child: Scaffold(
         appBar: const BasicAppbar(hideBack: false, ),
