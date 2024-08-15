@@ -1,7 +1,9 @@
+import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerce/core/configs/assets/app_images.dart';
 import 'package:ecommerce/core/configs/assets/app_vectors.dart';
 import 'package:ecommerce/core/configs/theme/app_colors.dart';
 import 'package:ecommerce/domain/auth/entity/user.dart';
+import 'package:ecommerce/presentation/cart/pages/cart.dart';
 import 'package:ecommerce/presentation/home/bloc/user_info_display_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +35,7 @@ class Header extends StatelessWidget {
                   children: [
                     _profileImage(state.user),
                     _gender(state.user),
-                    _card()
+                    _card(context)
                   ],
                 );
               }
@@ -85,17 +87,22 @@ class Header extends StatelessWidget {
     );
   }
 
-  Widget _card() {
-    return Container(
-      height: 40,
-      width: 40,
-      decoration: const BoxDecoration(
-        color: AppColors.primary,
-        shape: BoxShape.circle
-      ),
-      child: SvgPicture.asset(
-        AppVectors.bag,
-        fit: BoxFit.none,
+  Widget _card(BuildContext context) {
+    return GestureDetector(
+      onTap: (){
+        AppNavigator.push(context,const CartPage());
+      },
+      child: Container(
+        height: 40,
+        width: 40,
+        decoration: const BoxDecoration(
+          color: AppColors.primary,
+          shape: BoxShape.circle
+        ),
+        child: SvgPicture.asset(
+          AppVectors.bag,
+          fit: BoxFit.none,
+        ),
       ),
     );
   }

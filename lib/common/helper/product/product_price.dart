@@ -7,4 +7,6 @@ class ProductPriceHelper {
     product.discountedPrice.toDouble() : 
     product.price.toDouble();
   }
+
+  
 }
