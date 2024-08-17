@@ -2,10 +2,12 @@ import 'package:ecommerce/common/widgets/appbar/app_bar.dart';
 import 'package:ecommerce/presentation/cart/bloc/cart_products_display_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../core/configs/assets/app_vectors.dart';
 import '../../../domain/order/entities/product_ordered.dart';
 import '../bloc/cart_products_display_state.dart';
-import '../widgets/check_out.dart';
+import '../widgets/checkout.dart';
 import '../widgets/product_ordered_card.dart';
 
 class CartPage extends StatelessWidget {
@@ -29,12 +31,12 @@ class CartPage extends StatelessWidget {
               );
             }
             if (state is CartProductsLoaded) {
-              return Stack(
+              return state.products.isEmpty ? Center(child: _cartIsEmpty()) : Stack(
                 children: [
                   _products(state.products),
                    Align(
                     alignment: Alignment.bottomCenter,
-                    child: CheckOut(products: state.products,)
+                    child: Checkout(products: state.products,)
                   )
                 ],
               );
@@ -63,6 +65,26 @@ class CartPage extends StatelessWidget {
       },
       separatorBuilder: (context, index) => const SizedBox(height: 10,),
       itemCount: products.length
+    );
+  }
+
+  Widget _cartIsEmpty() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SvgPicture.asset(
+          AppVectors.cartBag
+        ),
+        const SizedBox(height: 20,),
+        const Text(
+          "Cart is empty",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 20
+          ),
+        )
+      ],
     );
   }
 }

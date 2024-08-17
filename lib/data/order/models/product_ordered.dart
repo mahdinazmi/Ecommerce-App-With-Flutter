@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-
 import 'package:ecommerce/domain/order/entities/product_ordered.dart';
 
 class ProductOrderedModel {
@@ -39,8 +38,24 @@ class ProductOrderedModel {
       totalPrice: map['totalPrice'] as double,
       productImage: map['productImage'] as String,
       createdDate: map['createdDate'] as String,
-      id: map['id'] as String
+      id: map['id'] as String,
     );
+  }
+
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'productId': productId,
+      'productTitle': productTitle,
+      'productQuantity': productQuantity,
+      'productColor': productColor,
+      'productSize': productSize,
+      'productPrice': productPrice,
+      'totalPrice': totalPrice,
+      'productImage': productImage,
+      'createdDate': createdDate,
+      'id': id,
+    };
   }
 
 }
@@ -48,6 +63,23 @@ class ProductOrderedModel {
 extension ProductOrderedXModel on ProductOrderedModel {
   ProductOrderedEntity toEntity() {
     return ProductOrderedEntity(
+      productId: productId, 
+      productTitle: productTitle, 
+      productQuantity: productQuantity, 
+      productColor: productColor, 
+      productSize: productSize, 
+      productPrice: productPrice, 
+      totalPrice: totalPrice, 
+      productImage: productImage, 
+      createdDate: createdDate,
+      id: id
+    );
+  }
+}
+
+extension ProductOrderedXEntity on ProductOrderedEntity {
+  ProductOrderedModel fromEntity() {
+    return ProductOrderedModel(
       productId: productId, 
       productTitle: productTitle, 
       productQuantity: productQuantity, 

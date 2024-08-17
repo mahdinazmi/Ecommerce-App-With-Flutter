@@ -1,13 +1,15 @@
 import 'package:ecommerce/common/helper/cart/cart.dart';
+import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerce/common/widgets/button/basic_app_button.dart';
 import 'package:ecommerce/core/configs/theme/app_colors.dart';
+import 'package:ecommerce/presentation/cart/pages/checkout.dart';
 import 'package:flutter/material.dart';
 
 import '../../../domain/order/entities/product_ordered.dart';
 
-class CheckOut extends StatelessWidget {
+class Checkout extends StatelessWidget {
   final List<ProductOrderedEntity> products;
-  const CheckOut({
+  const Checkout({
     required this.products,
     super.key
   });
@@ -98,7 +100,9 @@ class CheckOut extends StatelessWidget {
             ],
           ),
           BasicAppButton(
-            onPressed: (){},
+            onPressed: (){
+              AppNavigator.push(context, CheckOutPage(products: products,));
+            },
             title: 'Checkout',
           )
         ],
