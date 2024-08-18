@@ -5,6 +5,7 @@ import 'package:ecommerce/core/configs/theme/app_colors.dart';
 import 'package:ecommerce/domain/auth/entity/user.dart';
 import 'package:ecommerce/presentation/cart/pages/cart.dart';
 import 'package:ecommerce/presentation/home/bloc/user_info_display_cubit.dart';
+import 'package:ecommerce/presentation/settings/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -33,7 +34,7 @@ class Header extends StatelessWidget {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _profileImage(state.user),
+                    _profileImage(state.user,context),
                     _gender(state.user),
                     _card(context)
                   ],
@@ -46,21 +47,26 @@ class Header extends StatelessWidget {
     );
   }
 
-  Widget _profileImage(UserEntity user) {
-    return Container(
-      height: 40,
-      width: 40,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: user.image.isEmpty ? 
-          const AssetImage(
-            AppImages.profile
-          ) : NetworkImage(
-            user.image
-          )
+  Widget _profileImage(UserEntity user,BuildContext context) {
+    return GestureDetector(
+      onTap: (){
+        AppNavigator.push(context, const SettingsPage());
+      },
+      child: Container(
+        height: 40,
+        width: 40,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: user.image.isEmpty ? 
+            const AssetImage(
+              AppImages.profile
+            ) : NetworkImage(
+              user.image
+            )
+          ),
+          color: Colors.red,
+          shape: BoxShape.circle
         ),
-        color: Colors.red,
-        shape: BoxShape.circle
       ),
     );
   }
