@@ -11,6 +11,7 @@ abstract class OrderFirebaseService {
   Future<Either> getCartProducts();
   Future<Either> removeCartProduct(String id);
   Future<Either> orderRegistration(OrderRegistrationReq order);
+  Future<Either> getOrders();
   
 }
 
@@ -99,6 +100,21 @@ class OrderFirebaseServiceImpl extends OrderFirebaseService {
         'Please try again'
       );
 
+    }
+  }
+  
+  @override
+  Future<Either> getOrders() async {
+     try {
+      var user = FirebaseAuth.instance.currentUser;
+      var returnedData = await FirebaseFirestore.instance.collection(
+        "Users"
+      ).doc(user!.uid).collection('Orders').get();
+      return Right(returnedData.docs.map((e) => e.data()).toList());
+    } catch (e) {
+      return const Left(
+        'Please try again'
+      );
     }
   }
   

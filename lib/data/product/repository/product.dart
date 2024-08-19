@@ -90,7 +90,7 @@ class ProductRepositoryImpl extends ProductRepository {
   
   @override
   Future<Either> getFavoritesProducts() async {
-     var returnedData = await sl<ProductFirebaseService>().getFavoritesProducts();
+    var returnedData = await sl<ProductFirebaseService>().getFavoritesProducts();
     return returnedData.fold(
       (error){
         return Left(error);

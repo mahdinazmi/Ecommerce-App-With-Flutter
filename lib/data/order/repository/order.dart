@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce/data/order/models/add_to_cart_req.dart';
+import 'package:ecommerce/data/order/models/order.dart';
 import 'package:ecommerce/data/order/models/order_registration_req.dart';
 import 'package:ecommerce/data/order/models/product_ordered.dart';
 import 'package:ecommerce/data/order/source/order_firebase_service.dart';
@@ -54,6 +55,21 @@ class OrderRepositoryImpl extends OrderRepository {
       (message){
         return Right(
           message
+        );
+      }
+    );
+  }
+  
+  @override
+  Future<Either> getOrders() async {
+   var returnedData = await sl<OrderFirebaseService>().getOrders();
+    return returnedData.fold(
+      (error){
+        return Left(error);
+      }, 
+      (data){
+        return Right(
+          List.from(data).map((e) => OrderModel.fromMap(e).toEntity()).toList()
         );
       }
     );
